@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow'
+}
+
+group 'ru.otus'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+shadowJar {
+    archiveBaseName.set('ByteCodes')
+    archiveVersion.set('0.1')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.homework.bytecodes.ByteCodes'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
